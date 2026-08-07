@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台湾旅行（2026年9月）情報まとめ</title>
+  <style>
+    :root {
+      --bg-main: #f0f5fa;
+      --bg-card: #ffffff;
+      --text-main: #1a202c;
+      --text-sub: #4a5568;
+      --border-soft: #e2e8f0;
+      --blue-strong: #2b6cb0;
+      --blue-soft: #ebf4ff;
+      --teal-strong: #276749;
+      --orange-strong: #c05621;
+      --gray-soft: #f7fafc;
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.10);
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Noto Sans JP", sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 15px;
+      padding: 32px 16px 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ===== ページタイトル ===== */
+    .page-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a365d;
+      margin-bottom: 8px;
+      padding: 20px 16px 14px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      border-bottom: 3px solid #4299e1;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== クイックナビ ===== */
+    .quick-nav {
+      margin: 0 auto 28px;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: var(--blue-strong);
+      background: var(--blue-soft);
+      border: 1px solid #c9def4;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .quick-nav a:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(66, 153, 225, 0.2);
+    }
+
+    /* ===== マップリンク ===== */
+    .map-link {
+      color: var(--blue-strong);
+      text-decoration: none;
+      border-bottom: 1px dashed #90cdf4;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .map-link::after {
+      content: " 📍";
+      font-size: 0.7em;
+      opacity: 0.7;
+    }
+
+    .map-link:hover {
+      color: #1a4f86;
+      border-bottom-color: #2b6cb0;
+      border-bottom-style: solid;
+    }
+
+    /* フライト内のマップリンクは📍不要 */
+    .flight-airport .map-link::after { content: none; }
+
+    /* ===== セクション ===== */
+    .section {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: inline-block;
+      letter-spacing: 0.03em;
+    }
+
+    .section--schedule {
+      padding-bottom: 12px;
+    }
+
+    /* ===== 結婚式 ===== */
+    .section--wedding {
+      border: 2px solid #fed7aa;
+      background: linear-gradient(135deg, #fffbf5 0%, #fff 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section--wedding::before {
+      content: "💍";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 4rem;
+      opacity: 0.08;
+    }
+
+    .wedding-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 20px;
+      align-items: baseline;
+    }
+
+    .wedding-grid .label {
+      color: #718096;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .wedding-grid .value { font-weight: 600; font-size: 1rem; }
+    .venue-sub { font-size: 0.82rem; color: #718096; margin-top: 3px; }
+
+    /* ===== 日程表 ===== */
+    .schedule-wrap { margin: 0 auto 24px; }
+
+    .schedule-day { display: flex; }
+
+    .day-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 78px;
+      flex-shrink: 0;
+    }
+
+    .day-badge {
+      background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 8px 10px;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.3;
+      width: 68px;
+      box-shadow: 0 2px 6px rgba(43, 108, 176, 0.3);
+    }
+
+    .day-badge .dow { font-size: 0.72rem; opacity: 0.9; margin-top: 1px; }
+    .day-badge.wedding-day { background: linear-gradient(135deg, #c05621 0%, #dd6b20 100%); box-shadow: 0 2px 6px rgba(192, 86, 33, 0.3); }
+    .day-badge.return-day  { background: linear-gradient(135deg, #276749 0%, #38a169 100%); box-shadow: 0 2px 6px rgba(39, 103, 73, 0.3); }
+
+    .day-line {
+      flex: 1;
+      width: 3px;
+      background: linear-gradient(180deg, #bee3f8, #90cdf4);
+      min-height: 16px;
+      border-radius: 2px;
+    }
+    .day-line.last { background: transparent; }
+
+    .day-events {
+      flex: 1;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #edf2f7;
+      padding: 16px 20px;
+      margin-left: 14px;
+      margin-bottom: 16px;
+    }
+
+    .event-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f4f8;
+      font-size: 0.92rem;
+    }
+    .event-row:last-child { border-bottom: none; }
+
+    .event-time {
+      font-weight: 700;
+      min-width: 56px;
+      color: #2b6cb0;
+      font-size: 0.95rem;
+      font-feature-settings: "tnum";
+      white-space: nowrap;
+    }
+    .event-time.orange { color: #c05621; }
+    .event-time.green  { color: #276749; }
+
+    .event-body { flex: 1; line-height: 1.6; }
+    .ev-title { font-weight: 600; font-size: 0.93rem; }
+    .ev-sub   { font-size: 0.82rem; color: #718096; margin-top: 2px; }
+    .ev-members { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+
+    /* ===== バッジ ===== */
+    .badge {
+      font-size: 0.73rem;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .badge-blue  { background: #ebf4ff; color: #2b6cb0; }
+    .badge-teal  { background: #e6fffa; color: #276749; }
+    .badge-orange{ background: #fffaf0; color: #c05621; }
+    .badge-purple{ background: #faf5ff; color: #6b46c1; }
+    .badge-gray  { background: #edf2f7; color: #718096; }
+
+    /* ===== メンバーカード ===== */
+    .member-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+
+    .member-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #ebf4ff;
+    }
+
+    .group-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .gi-blue   { background: #ebf4ff; }
+    .gi-teal   { background: #e6fffa; }
+    .gi-orange { background: #fffaf0; }
+    .gi-purple { background: #faf5ff; }
+    .gi-gray   { background: #edf2f7; }
+
+    .group-name { font-size: 1.15rem; font-weight: 700; }
+
+    .group-dates {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: #fff;
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .member-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .mtag {
+      font-size: 0.82rem;
+      background: #edf2f7;
+      color: #4a5568;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-weight: 500;
+    }
+
+    .hotel-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      background: #fafcfe;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    /* ===== フライト ===== */
+    .flights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 560px) { .flights { grid-template-columns: 1fr; } }
+
+    .flight-box {
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .flight-box.outbound { background: #ebf8ff; border-left: 4px solid #4299e1; }
+    .flight-box.inbound  { background: #f0fff4; border-left: 4px solid #48bb78; }
+
+    .flight-direction { font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flight-box.outbound .flight-direction { color: #2b6cb0; }
+    .flight-box.inbound  .flight-direction { color: #276749; }
+
+    .flight-airline { font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; color: #2d3748; }
+
+    .flight-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .flight-time {
+      font-weight: 700;
+      font-size: 1.05rem;
+      min-width: 46px;
+      font-feature-settings: "tnum";
+    }
+
+    .flight-airport { color: #4a5568; }
+
+    .flight-dep-arr {
+      font-size: 0.72rem;
+      color: #718096;
+      background: #edf2f7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .flight-arrow {
+      text-align: center;
+      color: #a0aec0;
+      font-size: 0.78rem;
+      margin: 4px 0;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== ブロックタイトル ===== */
+    .block-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2b6cb0;
+      margin: 32px 0 14px;
+      padding-left: 4px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #bee3f8;
+    }
+
+    /* ===== グループブロック（日程表内） ===== */
+    .group-block {
+      border: 1.5px solid #bee3f8;
+      border-radius: 10px;
+      padding: 8px 12px 6px;
+      margin: 8px 0 10px;
+      background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
+    }
+
+    .group-block-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #2b6cb0;
+      background: #ebf4ff;
+      border-radius: 4px;
+      padding: 2px 10px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .group-block .event-row { border-bottom-color: #e8f4fd; }
+
+    /* ===== ポイント・準備メモ ===== */
+    .tips-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .tips-item {
+      border: 1px solid var(--border-soft);
+      background: var(--gray-soft);
+      border-radius: 10px;
+      padding: 14px 16px;
+      transition: box-shadow 0.15s;
+    }
+
+    .tips-item:hover {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .tips-item-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .tips-item-body {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 12px 40px;
+        font-size: 14px;
+      }
+
+      .page-title { font-size: 1.3rem; }
+
+      .section,
+      .member-card {
+        padding: 16px 14px;
+        border-radius: 12px;
+      }
+
+      .schedule-day {
+        flex-direction: column;
+      }
+
+      .day-col {
+        flex-direction: row;
+        width: auto;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .day-line { display: none; }
+
+      .day-events {
+        margin-left: 0;
+        padding: 14px;
+      }
+
+      .event-time { min-width: 52px; }
+
+      .tips-list { grid-template-columns: 1fr; }
+
+      .flights { grid-template-columns: 1fr; }
+
+      .hotel-row { font-size: 0.85rem; }
+    }
+
+    /* ===== 印刷 ===== */
+    @media print {
+      body { background: #fff; padding: 0; font-size: 12px; }
+      .quick-nav { display: none; }
+      .section, .member-card, .day-events { box-shadow: none; border: 1px solid #ddd; }
+      .map-link::after { content: none; }
+      .page-title { border-bottom: 2px solid #333; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+<div class="page-title">✈️ 台湾旅行（2026年9月）情報まとめ</div>
+<p class="page-subtitle">9/18（金）〜 9/22（火）・結婚式 9/20（日）台中</p>
+
+<nav class="quick-nav" aria-label="ページ内メニュー">
+  <a href="#members">グループ別情報</a>
+  <a href="#schedule">日程表</a>
+  <a href="#tips">ポイント・準備メモ</a>
+</nav>
+
+<!-- メンバー -->
+<h2 class="block-title" id="members">🧳 グループ別フライト・ホテル</h2>
+
+<!-- 杉グループ -->
+<div class="member-card">
+  <div class="member-header">
+    <div class="group-icon gi-blue">✈️</div>
+    <div class="group-name">杉グループ</div>
+    <div class="group-dates">9/18〜21</div>
+  </div>
+  <div class="member-tags">
+    <span class="mtag">杉</span><span class="mtag">大川</span><span class="mtag">大川旦那</span>
+    <span class="mtag">大藤</span><span class="mtag">田村</span><span class="mtag">東浦</span>
+    <span class="mtag">日比野</span><span class="mtag">廣兼</span><span class="mtag">安井</span>
+    <span class="mtag">澁田</span>
+  </div>
+  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/9oRdm9wJHugfur7L7" target="_blank" rel="noopener noreferrer">ソラリア西鉄ホテル台北西門</a>（杉さん）</div>
+  <div class="flights">
+    <div class="flight-box outbound">
+      <div class="flight-direction">▶ 行き</div>
+      <div class="flight-airline">タイガーエア台湾 IT211便</div>
+      <div class="flight-row">
+        <span class="flight-time">11:15</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-18</div>
+      <div class="flight-row">
+        <span class="flight-time">13:10</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+    <div class="flight-box inbound">
+      <div class="flight-direction">◀ 帰り</div>
+      <div class="flight-airline">タイガーエア台湾 IT212便</div>
+      <div class="flight-row">
+        <span class="flight-time">15:15</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-21</div>
+      <div class="flight-row">
+        <span class="flight-time">19:00</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 徳永グループ（大阪出発） -->
+<div class="member-card">
+  <div class="member-header">
+    <div class="group-icon gi-teal">✈️</div>
+    <div class="group-name">徳永グループ（大阪出発）</div>
+    <div class="group-dates">9/18〜21</div>
+  </div>
+  <div class="member-tags">
+    <span class="mtag">徳永</span><span class="mtag">山藤</span><span class="mtag">薬師</span>
+  </div>
+  <div class="hotel-row"><span>🏨</span> 1泊目：<a class="map-link" href="https://maps.app.goo.gl/Cb2Bmguaac4oXUxz9" target="_blank" rel="noopener noreferrer">洛碁大飯店 驛 Green World Taipei Station</a></div>
+  <div class="hotel-row"><span>🏨</span> 2泊目以降：<a class="map-link" href="https://maps.app.goo.gl/NyUWW5EsrXwGyaUCA" target="_blank" rel="noopener noreferrer">葉緑宿茶覚旅 TEA WAY HOTEL 台中站前館</a></div>
+  <div class="flights">
+    <div class="flight-box outbound">
+      <div class="flight-direction">▶ 行き</div>
+      <div class="flight-airline">タイガーエア台湾 IT211便</div>
+      <div class="flight-row">
+        <span class="flight-time">11:15</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-18</div>
+      <div class="flight-row">
+        <span class="flight-time">13:10</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+    <div class="flight-box inbound">
+      <div class="flight-direction">◀ 帰り</div>
+      <div class="flight-airline">ジェットスター・ジャパン GK054便</div>
+      <div class="flight-row">
+        <span class="flight-time">18:20</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-21</div>
+      <div class="flight-row">
+        <span class="flight-time">22:00</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 徳永グループ（東京出発） -->
+<div class="member-card">
+  <div class="member-header">
+    <div class="group-icon gi-teal">✈️</div>
+    <div class="group-name">徳永グループ（東京出発）</div>
+    <div class="group-dates">9/19〜22</div>
+  </div>
+  <div class="member-tags">
+    <span class="mtag">吉川</span><span class="mtag">榎木</span>
+  </div>
+  <div class="flights">
+    <div class="flight-box outbound">
+      <div class="flight-direction">▶ 行き</div>
+      <div class="flight-airline">タイガーエア台湾 IT217便</div>
+      <div class="flight-row">
+        <span class="flight-time">05:25</span>
+        <span class="flight-airport">羽田空港 (HND)</span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-19</div>
+      <div class="flight-row">
+        <span class="flight-time">08:00</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+    <div class="flight-box inbound">
+      <div class="flight-direction">◀ 帰り</div>
+      <div class="flight-airline">タイガーエア台湾 IT216便</div>
+      <div class="flight-row">
+        <span class="flight-time">00:10</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-22</div>
+      <div class="flight-row">
+        <span class="flight-time">04:25</span>
+        <span class="flight-airport">羽田空港 (HND)</span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 南グループ -->
+<div class="member-card">
+  <div class="member-header">
+    <div class="group-icon gi-orange">✈️</div>
+    <div class="group-name">南グループ</div>
+    <div class="group-dates">9/19〜21</div>
+  </div>
+  <div class="member-tags">
+    <span class="mtag">南しんちゃん</span><span class="mtag">南ひろむくん</span><span class="mtag">南</span>
+  </div>
+  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/9oRdm9wJHugfur7L7" target="_blank" rel="noopener noreferrer">ソラリア西鉄ホテル台北西門</a></div>
+  <div class="flights">
+    <div class="flight-box outbound">
+      <div class="flight-direction">▶ 行き</div>
+      <div class="flight-airline">ピーチ MM23便</div>
+      <div class="flight-row">
+        <span class="flight-time">07:55</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-19</div>
+      <div class="flight-row">
+        <span class="flight-time">09:55</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+    <div class="flight-box inbound">
+      <div class="flight-direction">◀ 帰り</div>
+      <div class="flight-airline">タイガーエア台湾 IT212便</div>
+      <div class="flight-row">
+        <span class="flight-time">15:15</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE)</a></span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-21</div>
+      <div class="flight-row">
+        <span class="flight-time">19:00</span>
+        <span class="flight-airport">関西国際空港 (KIX)</span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 戸塚グループ -->
+<div class="member-card">
+  <div class="member-header">
+    <div class="group-icon gi-gray">✈️</div>
+    <div class="group-name">戸塚グループ</div>
+    <div class="group-dates">9/19〜22</div>
+  </div>
+  <div class="member-tags">
+    <span class="mtag">戸塚</span><span class="mtag">戸塚れいな</span>
+  </div>
+  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/mCJWemcd32mpfAPB6" target="_blank" rel="noopener noreferrer">MGH Mitsui Garden Hotel 台北忠孝</a></div>
+  <div class="flights">
+    <div class="flight-box outbound">
+      <div class="flight-direction">▶ 行き</div>
+      <div class="flight-airline">キャセイパシフィック航空</div>
+      <div class="flight-row">
+        <span class="flight-time">16:15</span>
+        <span class="flight-airport">関西国際空港 (KIX) T1</span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-19 直行便</div>
+      <div class="flight-row">
+        <span class="flight-time">18:15</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE) T1</a></span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+    <div class="flight-box inbound">
+      <div class="flight-direction">◀ 帰り</div>
+      <div class="flight-airline">キャセイパシフィック航空</div>
+      <div class="flight-row">
+        <span class="flight-time">11:05</span>
+        <span class="flight-airport"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港 (TPE) T1</a></span>
+        <span class="flight-dep-arr">発</span>
+      </div>
+      <div class="flight-arrow">↓ 2026-09-22 直行便</div>
+      <div class="flight-row">
+        <span class="flight-time">14:50</span>
+        <span class="flight-airport">関西国際空港 (KIX) T1</span>
+        <span class="flight-dep-arr">着</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 日程表 -->
+<div class="schedule-wrap">
+  <div class="section section--schedule" id="schedule">
+    <span class="section-title">📅 日程表</span>
+
+    <!-- 9/18 -->
+    <div class="schedule-day">
+      <div class="day-col">
+        <div class="day-badge">9/18<div class="dow">金</div></div>
+        <div class="day-line"></div>
+      </div>
+      <div class="day-events">
+        <div class="event-row">
+          <span class="event-time">11:15</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ KIX 発 → TPE 13:10 着</div>
+            <div class="ev-sub">タイガーエア台湾 IT211便</div>
+            <div class="ev-members">
+              <span class="badge badge-blue">杉グループ</span>
+              <span class="badge badge-teal">徳永G（大阪）</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">13:10〜</span>
+          <div class="event-body">
+            <div class="ev-title">🍜 空港着・昼ごはん</div>
+            <div class="ev-sub"><a class="map-link" href="https://maps.app.goo.gl/5YexTX628rMegvRU9" target="_blank" rel="noopener noreferrer">台湾桃園国際空港</a>内で食事</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">午後</span>
+          <div class="event-body">
+            <div class="ev-title">🏨 ホテルへ移動・荷物を預ける</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">午後〜</span>
+          <div class="event-body">
+            <div class="ev-title">🏘️ <a class="map-link" href="https://maps.app.goo.gl/AyfCXqgPqGKEsS767" target="_blank" rel="noopener noreferrer">九份老街</a>へ</div>
+            <div class="ev-sub">各グループごとに自由行動／台北ホテル → <a class="map-link" href="https://maps.app.goo.gl/AyfCXqgPqGKEsS767" target="_blank" rel="noopener noreferrer">九份老街</a> バスで約30分</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">夜</span>
+          <div class="event-body">
+            <div class="ev-title">🏮 夜市</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9/19 -->
+    <div class="schedule-day">
+      <div class="day-col">
+        <div class="day-badge">9/19<div class="dow">土</div></div>
+        <div class="day-line"></div>
+      </div>
+      <div class="day-events">
+        <div class="event-row">
+          <span class="event-time">05:25</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ HND 発 → TPE 08:00 着</div>
+            <div class="ev-sub">タイガーエア台湾 IT217便</div>
+            <div class="ev-members">
+              <span class="badge badge-teal">徳永G（東京）</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">07:55</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ KIX 発 → TPE 09:55 着</div>
+            <div class="ev-sub">ピーチ MM23便</div>
+            <div class="ev-members">
+              <span class="badge badge-orange">南グループ</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">16:15</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ KIX 発 → TPE 18:15 着</div>
+            <div class="ev-sub">キャセイパシフィック航空 直行便</div>
+            <div class="ev-members">
+              <span class="badge badge-gray">戸塚グループ</span>
+            </div>
+          </div>
+        </div>
+        <div class="group-block">
+          <div class="group-block-label">徳永グループ以外</div>
+          <div class="event-row">
+            <span class="event-time">朝</span>
+            <div class="event-body">
+              <div class="ev-title">🍳 朝ごはん</div>
+              <div class="ev-sub">ホテル近くのどこかで</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time">午前〜昼</span>
+            <div class="event-body">
+              <div class="ev-title">🛍️ お買い物＋ランチ</div>
+              <div class="ev-sub"><a class="map-link" href="https://maps.app.goo.gl/4xkT1iza47LDs6Rx5" target="_blank" rel="noopener noreferrer">迪化街 Dihua Street</a>／<a class="map-link" href="https://maps.app.goo.gl/j5QfFi7K9NF641GP7" target="_blank" rel="noopener noreferrer">カルフール 重慶店</a></div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time">昼頃</span>
+            <div class="event-body">
+              <div class="ev-title">🤝 南グループ合流</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time">夜</span>
+            <div class="event-body">
+              <div class="ev-title">🤝 戸塚グループ合流</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time">夜</span>
+            <div class="event-body">
+              <div class="ev-title">🏮 夜市：<a class="map-link" href="https://maps.app.goo.gl/ngKYJyCmUJK8PMrJ9" target="_blank" rel="noopener noreferrer">寧夏夜市 Ningxia Night Market</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="group-block">
+          <div class="group-block-label">徳永グループ</div>
+          <div class="event-row">
+            <span class="event-time">午前</span>
+            <div class="event-body">
+              <div class="ev-title">🚄 台中へ移動</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9/20 結婚式 -->
+    <div class="schedule-day">
+      <div class="day-col">
+        <div class="day-badge wedding-day">9/20<div class="dow">日</div></div>
+        <div class="day-line"></div>
+      </div>
+      <div class="day-events">
+        <div class="group-block">
+          <div class="group-block-label">徳永グループ以外</div>
+          <div class="event-row">
+            <span class="event-time orange">朝</span>
+            <div class="event-body">
+              <div class="ev-title">🥣 朝ごはん：<a class="map-link" href="https://maps.app.goo.gl/XPG9revQbMEYeY9S9" target="_blank" rel="noopener noreferrer">阜杭豆漿 Fu Hang Soy Milk</a></div>
+              <div class="ev-sub">台北の人気朝食店</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time orange">〜09:40</span>
+            <div class="event-body">
+              <div class="ev-title">🚶 新幹線駅へ移動（徒歩約10分）</div>
+              <div class="ev-sub">発車10分前には駅に到着を</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time orange">09:51</span>
+            <div class="event-body">
+              <div class="ev-title">🚄 新幹線 <a class="map-link" href="https://maps.app.goo.gl/uvGRMc121ARXVkth8" target="_blank" rel="noopener noreferrer">台北駅</a> 発 → <a class="map-link" href="https://maps.app.goo.gl/BgdL1Deh7sLHnVbk7" target="_blank" rel="noopener noreferrer">台中駅</a> 10:38 着</div>
+              <div class="ev-sub">列車番号 1213／所要時間約47分</div>
+            </div>
+          </div>
+          <div class="event-row">
+            <span class="event-time orange">10:38〜</span>
+            <div class="event-body">
+              <div class="ev-title">🚕 <a class="map-link" href="https://maps.app.goo.gl/BgdL1Deh7sLHnVbk7" target="_blank" rel="noopener noreferrer">台中駅</a>からタクシーで会場へ</div>
+              <div class="ev-sub">所要時間約20〜30分</div>
+            </div>
+          </div>
+        </div>
+        <div class="group-block">
+          <div class="group-block-label">徳永グループ</div>
+          <div class="event-row">
+            <span class="event-time orange">午前</span>
+            <div class="event-body">
+              <div class="ev-title">🤝 会場で合流</div>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time orange">11:30</span>
+          <div class="event-body">
+            <div class="ev-title">💍 結婚式 受付開始</div>
+            <div class="ev-sub"><a class="map-link" href="https://maps.app.goo.gl/Cw1FCbF1Aq2TCe3G6" target="_blank" rel="noopener noreferrer">新天地 旱溪東區店・瀚熙軒</a>（台中）</div>
+            <div class="ev-sub">臺中市東區旱溪東路一段456號二樓（台中市東区 旱溪東路一段456号 2階）</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time orange">12:00</span>
+          <div class="event-body">
+            <div class="ev-title">💍 披露宴 開始</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time orange">〜15:00</span>
+          <div class="event-body">
+            <div class="ev-title">💍 披露宴 終了（目安）</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time orange">15:00〜</span>
+          <div class="event-body">
+            <div class="ev-title">🍦 <a class="map-link" href="https://maps.app.goo.gl/59dWY6tdzx6QSYMS6" target="_blank" rel="noopener noreferrer">宮原眼科</a>へ移動（2次会・買い物）</div>
+            <div class="ev-sub"><a class="map-link" href="https://maps.app.goo.gl/BgdL1Deh7sLHnVbk7" target="_blank" rel="noopener noreferrer">台中駅</a>近く／約2時間滞在・19時ごろまで</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time orange">19:00〜</span>
+          <div class="event-body">
+            <div class="ev-title">🚄 台北へ移動</div>
+            <div class="ev-sub">徳永グループ（台中泊）を除く全員</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9/21 帰国 -->
+    <div class="schedule-day">
+      <div class="day-col">
+        <div class="day-badge return-day">9/21<div class="dow">月</div></div>
+        <div class="day-line"></div>
+      </div>
+      <div class="day-events">
+        <div class="event-row">
+          <span class="event-time green">15:15</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ TPE 発 → KIX 19:00 着</div>
+            <div class="ev-sub">タイガーエア台湾 IT212便</div>
+            <div class="ev-members">
+              <span class="badge badge-blue">杉グループ</span>
+              <span class="badge badge-orange">南グループ</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time green">18:20</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ TPE 発 → KIX 22:00 着</div>
+            <div class="ev-sub">ジェットスター・ジャパン GK054便</div>
+            <div class="ev-members">
+              <span class="badge badge-teal">徳永G（大阪）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9/22 帰国 -->
+    <div class="schedule-day">
+      <div class="day-col">
+        <div class="day-badge return-day">9/22<div class="dow">火</div></div>
+        <div class="day-line last"></div>
+      </div>
+      <div class="day-events">
+        <div class="event-row">
+          <span class="event-time green">00:10</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ TPE 発 → HND 04:25 着</div>
+            <div class="ev-sub">タイガーエア台湾 IT216便</div>
+            <div class="ev-members">
+              <span class="badge badge-teal">徳永G（東京）</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time green">11:05</span>
+          <div class="event-body">
+            <div class="ev-title">✈️ TPE 発 → KIX 14:50 着</div>
+            <div class="ev-sub">キャセイパシフィック航空 直行便</div>
+            <div class="ev-members">
+              <span class="badge badge-gray">戸塚グループ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ポイント -->
+<h2 class="block-title" id="tips">📌 ポイント・準備メモ</h2>
+
+<div class="member-card">
+  <ul class="tips-list">
+    <li class="tips-item">
+      <div class="tips-item-title">🛂 入国の登録（TWAC）</div>
+      <div class="tips-item-body">先にやっておきましょう。台湾到着前7日以内にオンライン入国カード（TWAC）を無料で登録できます。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">💴 円の両替</div>
+      <div class="tips-item-body">3万円くらい持っておきましょう。意外とクレカやPayPayは使えるようです。ただし公共交通機関では使えません。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">💌 ご祝儀</div>
+      <div class="tips-item-body">杉さんが袋を用意してくれます。<strong>1万円・新札・日本円</strong>で。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🚄 新幹線</div>
+      <div class="tips-item-body">杉・南・戸塚チームは林さんが予約？</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">📱 SIM</div>
+      <div class="tips-item-body">各自入っておきましょう。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">📲 アプリ</div>
+      <div class="tips-item-body">Uber ／ 翻訳系 ／ PayPay</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🔌 電圧</div>
+      <div class="tips-item-body">台湾は <strong>110V</strong> です。変換プラグが必要な場合があります。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🛡️ キャンセル保険</div>
+      <div class="tips-item-body">9月は台風シーズンです。入っておきましょう。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">👔 結婚式の服装</div>
+      <div class="tips-item-body">林さんの招待状を確認しましょう。</div>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+</body>
+</html>
