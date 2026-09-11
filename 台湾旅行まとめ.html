@@ -61,6 +61,21 @@
       letter-spacing: 0.02em;
     }
 
+    .map-list-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      padding: 14px 16px;
+      margin: 0 auto 18px;
+      border: 1px solid var(--border-soft);
+      text-align: center;
+    }
+
+    .map-list-box .map-link {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
     /* ===== クイックナビ ===== */
     .quick-nav {
       margin: 0 auto 28px;
@@ -520,6 +535,14 @@
 <div class="page-title">✈️ 台湾旅行（2026年9月）情報まとめ</div>
 <p class="page-subtitle">9/18（金）〜 9/22（火）・結婚式 9/20（日）台中</p>
 
+<div class="map-list-box">
+  <a class="map-link" href="https://maps.app.goo.gl/yTcGxKR4NVoQv5Gy6" target="_blank" rel="noopener noreferrer">Googleマップ スポット一覧</a>
+</div>
+
+<div class="map-list-box">
+  <a class="map-link" href="結婚式の招待状(林).pdf" target="_blank" rel="noopener noreferrer">結婚式の招待状（PDF）</a>
+</div>
+
 <nav class="quick-nav" aria-label="ページ内メニュー">
   <a href="#members">グループ別情報</a>
   <a href="#schedule">日程表</a>
@@ -542,7 +565,7 @@
     <span class="mtag">日比野</span><span class="mtag">廣兼</span><span class="mtag">安井</span>
     <span class="mtag">澁田</span>
   </div>
-  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/9oRdm9wJHugfur7L7" target="_blank" rel="noopener noreferrer">ソラリア西鉄ホテル台北西門</a>（杉さん）</div>
+  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/9oRdm9wJHugfur7L7" target="_blank" rel="noopener noreferrer">ソラリア西鉄ホテル台北西門</a></div>
   <div class="flights">
     <div class="flight-box outbound">
       <div class="flight-direction">▶ 行き</div>
@@ -633,6 +656,7 @@
   <div class="member-tags">
     <span class="mtag">吉川</span><span class="mtag">榎木</span>
   </div>
+  <div class="hotel-row"><span>🏨</span> <a class="map-link" href="https://maps.app.goo.gl/NyUWW5EsrXwGyaUCA" target="_blank" rel="noopener noreferrer">葉緑宿茶覚旅 TEA WAY HOTEL 台中站前館</a></div>
   <div class="flights">
     <div class="flight-box outbound">
       <div class="flight-direction">▶ 行き</div>
@@ -794,10 +818,17 @@
           </div>
         </div>
         <div class="event-row">
-          <span class="event-time">午後〜</span>
+          <span class="event-time">15:00〜</span>
+          <div class="event-body">
+            <div class="ev-title">🤝 ホテル（<a class="map-link" href="https://maps.app.goo.gl/9oRdm9wJHugfur7L7" target="_blank" rel="noopener noreferrer">ソラリア西鉄ホテル台北西門</a>）で林さん合流</div>
+          </div>
+        </div>
+        <div class="event-row">
+          <span class="event-time">15:30</span>
           <div class="event-body">
             <div class="ev-title">🏘️ <a class="map-link" href="https://maps.app.goo.gl/AyfCXqgPqGKEsS767" target="_blank" rel="noopener noreferrer">九份老街</a>へ</div>
             <div class="ev-sub">各グループごとに自由行動／台北ホテル → <a class="map-link" href="https://maps.app.goo.gl/AyfCXqgPqGKEsS767" target="_blank" rel="noopener noreferrer">九份老街</a> バスで約30分</div>
+            <div class="ev-sub">🚌 チャーター予定（14名）：台北 15:30 発／九份 19:00 発（5人乗り＋9人乗り）</div>
           </div>
         </div>
         <div class="event-row">
@@ -972,6 +1003,7 @@
           <div class="event-body">
             <div class="ev-title">🚄 台北へ移動</div>
             <div class="ev-sub">徳永グループ（台中泊）を除く全員</div>
+            <div class="ev-sub">帰路新幹線は 21:00 発を予約済み</div>
           </div>
         </div>
       </div>
@@ -1050,11 +1082,23 @@
   <ul class="tips-list">
     <li class="tips-item">
       <div class="tips-item-title">🛂 入国の登録（TWAC）</div>
-      <div class="tips-item-body">先にやっておきましょう。台湾到着前7日以内にオンライン入国カード（TWAC）を無料で登録できます。</div>
+      <div class="tips-item-body">先にやっておきましょう。案内上は入国3日前〜登録の共有あり。最終的な受付期間は公式で要確認です。<a class="map-link" href="https://twac.immigration.gov.tw/" target="_blank" rel="noopener noreferrer">TWAC公式</a></div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">💱 両替</div>
+      <div class="tips-item-body">申込・入金済み。1人あたり <strong>4000元（1000元札4枚）</strong>／<strong>20,220円</strong>（振込手数料按分込み）／レート <strong>5.05</strong>。原則現金精算、難しい場合は一部PayPay可。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">💴 両替の受け渡し</div>
+      <div class="tips-item-body">南さん以外は同便メンバー中心に関空で受け渡し予定。南さんは現地渡し。社内で渡せる方は会社で現金回収の運用。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">💴 円の両替</div>
       <div class="tips-item-body">3万円くらい持っておきましょう。意外とクレカやPayPayは使えるようです。ただし公共交通機関では使えません。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🏦 両替のバックアップ</div>
+      <div class="tips-item-body">代表両替を基本にしつつ、必要時は関空での両替も選択肢。空港は便利な分レート高めの可能性あり。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">💌 ご祝儀</div>
@@ -1062,15 +1106,23 @@
     </li>
     <li class="tips-item">
       <div class="tips-item-title">🚄 新幹線</div>
-      <div class="tips-item-body">杉・南・戸塚チームは林さんが予約？</div>
+      <div class="tips-item-body">台北チーム分は購入済み。目安は1人 <strong>1400元（精算7,200円）</strong>。9/20は行き 9:51 発、帰りは 21:00 発を予約済み。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🚕 台中の移動</div>
+      <div class="tips-item-body">台中駅→式場は駅前タクシー乗り場利用。式場→二次会周辺、二次会周辺→高鉄台中駅は必要に応じて幹事側または店舗受付で配車依頼可。タクシーは基本4人乗り、Uber利用も可（6人乗り候補あり）。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🚌 9/18 九份チャーター</div>
+      <div class="tips-item-body">14人（5人乗り＋9人乗り）で予約進行。時刻目安は台北 15:30 発／九份 19:00 発。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">📱 SIM</div>
-      <div class="tips-item-body">各自入っておきましょう。</div>
+      <div class="tips-item-body">各自準備。Airalo利用例あり（7日 3GBが安定候補）。紹介コード共有：KYOKO7355 / VJGTSE3700。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">📲 アプリ</div>
-      <div class="tips-item-body">Uber ／ 翻訳系 ／ PayPay</div>
+      <div class="tips-item-body">Uber ／ 翻訳系 ／ PayPay。台湾到着後はPayPay表示が台湾向け表示になる共有あり（支払レートは決済時点適用）。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">🔌 電圧</div>
@@ -1078,7 +1130,15 @@
     </li>
     <li class="tips-item">
       <div class="tips-item-title">🛡️ キャンセル保険</div>
-      <div class="tips-item-body">9月は台風シーズンです。入っておきましょう。</div>
+      <div class="tips-item-body">9月は台風シーズンです。加入推奨。たびほの共有例あり（エポス補完で約1,470円のケース）。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">🖨 印刷・保存</div>
+      <div class="tips-item-body">航空券、海外保険、ホテル情報は印刷またはオフライン保存を推奨。</div>
+    </li>
+    <li class="tips-item">
+      <div class="tips-item-title">💌 ご祝儀袋の配布</div>
+      <div class="tips-item-body">社内で順次配布中。当日合流メンバーは現地渡し予定。開発メンバー分は代表受け取り運用あり。</div>
     </li>
     <li class="tips-item">
       <div class="tips-item-title">👔 結婚式の服装</div>
